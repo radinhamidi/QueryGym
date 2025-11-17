@@ -39,14 +39,16 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
+          paths: [.]
           options:
             docstring_style: google
-            show_source: true
+            show_source: false
             show_root_heading: true
             show_root_full_path: false
             show_symbol_type_heading: true
             show_symbol_type_toc: true
             members_order: source
+            show_signature_annotations: true
 
 markdown_extensions:
   - pymdownx.highlight:

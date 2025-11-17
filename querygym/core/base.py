@@ -5,11 +5,35 @@ from tqdm import tqdm
 
 @dataclass
 class QueryItem:
+    """Represents a query with its ID and text.
+    
+    Attributes:
+        qid: Unique query identifier
+        text: Query text content
+        
+    Example:
+        >>> query = QueryItem(qid="q1", text="what causes diabetes")
+    """
     qid: str
     text: str
 
 @dataclass
 class ReformulationResult:
+    """Result of a query reformulation operation.
+    
+    Attributes:
+        qid: Query identifier
+        original: Original query text
+        reformulated: Reformulated query text
+        metadata: Additional metadata about the reformulation
+        
+    Example:
+        >>> result = ReformulationResult(
+        ...     qid="q1",
+        ...     original="diabetes",
+        ...     reformulated="diabetes causes symptoms treatment"
+        ... )
+    """
     qid: str
     original: str
     reformulated: str
@@ -17,6 +41,23 @@ class ReformulationResult:
 
 @dataclass
 class MethodConfig:
+    """Configuration for a reformulation method.
+    
+    Attributes:
+        name: Method name (e.g., "genqr", "query2doc")
+        params: Method-specific parameters
+        llm: LLM configuration (model, temperature, max_tokens, etc.)
+        seed: Random seed for reproducibility (default: 42)
+        retries: Number of retries on LLM failure (default: 2)
+        
+    Example:
+        >>> config = MethodConfig(
+        ...     name="genqr_ensemble",
+        ...     params={"repeat_query_weight": 3},
+        ...     llm={"model": "gpt-4", "temperature": 0.8},
+        ...     seed=42
+        ... )
+    """
     name: str
     params: Dict[str, Any]
     llm: Dict[str, Any]
@@ -24,6 +65,21 @@ class MethodConfig:
     retries: int = 2
 
 class BaseReformulator:
+    """Base class for all query reformulation methods.
+    
+    All reformulation methods inherit from this class and implement
+    the `reformulate` method. This class provides common functionality
+    for concatenating results and batch processing.
+    
+    Attributes:
+        VERSION: Method version string
+        REQUIRES_CONTEXT: Whether method requires retrieved contexts
+        CONCATENATION_STRATEGY: Strategy for combining query with generated content
+        DEFAULT_QUERY_REPEATS: Default number of query repetitions
+        cfg: Method configuration
+        llm: LLM client instance
+        prompts: Prompt bank instance
+    """
     VERSION = "0.1"
     REQUIRES_CONTEXT = False
     
@@ -32,11 +88,30 @@ class BaseReformulator:
     DEFAULT_QUERY_REPEATS = 3  # Default number of query repetitions
 
     def __init__(self, cfg: MethodConfig, llm_client, prompt_resolver):
+        """Initialize the reformulator.
+        
+        Args:
+            cfg: Method configuration
+            llm_client: LLM client for generating reformulations
+            prompt_resolver: Prompt bank for retrieving prompts
+        """
         self.cfg = cfg
         self.llm = llm_client
         self.prompts = prompt_resolver
 
     def reformulate(self, q: QueryItem, contexts: Optional[List[str]] = None) -> ReformulationResult:
+        """Reformulate a single query.
+        
+        Args:
+            q: Query to reformulate
+            contexts: Optional retrieved contexts (required for some methods)
+            
+        Returns:
+            Reformulation result
+            
+        Raises:
+            NotImplementedError: Must be implemented by subclasses
+        """
         raise NotImplementedError
 
     def concatenate_result(self, original_query: str, generated_content: str | List[str], 
@@ -229,7 +304,27 @@ class BaseReformulator:
         contexts = self.retrieve_contexts_batch([q], retrieval_params)
         return contexts.get(q.qid, [])
 
-    def reformulate_batch(self, queries: List[QueryItem], ctx_map: Optional[Dict[str, List[str]]] = None):
+    def reformulate_batch(self, queries: List[QueryItem], ctx_map: Optional[Dict[str, List[str]]] = None) -> List[ReformulationResult]:
+        """Reformulate multiple queries in batch.
+        
+        Processes a list of queries and returns reformulation results.
+        Shows a progress bar during processing. If the method requires
+        contexts and none are provided, attempts to retrieve them automatically.
+        
+        Args:
+            queries: List of queries to reformulate
+            ctx_map: Optional mapping of query IDs to context lists.
+                     If None and method requires contexts, will attempt retrieval.
+                     
+        Returns:
+            List of reformulation results, one per input query
+            
+        Example:
+            >>> queries = [QueryItem("q1", "diabetes"), QueryItem("q2", "cancer")]
+            >>> results = reformulator.reformulate_batch(queries)
+            >>> for r in results:
+            ...     print(f"{r.qid}: {r.reformulated}")
+        """
         # If no contexts provided and method requires context, do batch retrieval
         if ctx_map is None and hasattr(self, 'REQUIRES_CONTEXT') and self.REQUIRES_CONTEXT:
             retrieval_params = self._get_retrieval_params()

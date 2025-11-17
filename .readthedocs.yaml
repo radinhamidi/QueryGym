@@ -7,11 +7,6 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.9"
-  jobs:
-    post_create_environment:
-      - pip install poetry
-    post_install:
-      - pip install -e .[dev]
 
 mkdocs:
   configuration: mkdocs.yml
