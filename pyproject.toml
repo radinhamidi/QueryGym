@@ -70,10 +70,10 @@ all = [
 querygym = "querygym.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/radinhamidi/queryGym"
-Documentation = "https://github.com/radinhamidi/queryGym/blob/main/README.md"
-Repository = "https://github.com/radinhamidi/queryGym"
-Issues = "https://github.com/radinhamidi/queryGym/issues"
+Homepage = "https://github.com/radinhamidi/QueryGym"
+Documentation = "https://github.com/radinhamidi/QueryGym/blob/main/README.md"
+Repository = "https://github.com/radinhamidi/QueryGym"
+Issues = "https://github.com/radinhamidi/QueryGym/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]

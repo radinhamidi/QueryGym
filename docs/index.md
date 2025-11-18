@@ -78,7 +78,7 @@ If you use querygym in your research, please cite:
   title = {querygym: LLM-based Query Reformulation Toolkit},
   author = {Bigdeli, Amin and Hamidi Rad, Radin and Incesu, Mert and Arabzadeh, Negar and Clarke, Charles L. A. and Bagheri, Ebrahim},
   year = {2025},
-  url = {https://github.com/radinhamidi/queryGym}
+  url = {https://github.com/radinhamidi/QueryGym}
 }
 ```
 

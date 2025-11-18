@@ -1,4 +1,4 @@
-[![Publish to PyPI](https://github.com/radinhamidi/queryGym/actions/workflows/publish.yml/badge.svg)](https://github.com/radinhamidi/queryGym/actions/workflows/publish.yml)
+[![Publish to PyPI](https://github.com/radinhamidi/QueryGym/actions/workflows/publish.yml/badge.svg)](https://github.com/radinhamidi/QueryGym/actions/workflows/publish.yml)
 
 # querygym
 

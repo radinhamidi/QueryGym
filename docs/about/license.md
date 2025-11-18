@@ -58,7 +58,7 @@ If you use querygym in your research, please cite:
   title = {querygym: LLM-based Query Reformulation Toolkit},
   author = {Hamidi, Radin and Bigdeli, Amin and Incesu, Mert and Arabzadeh, Negar},
   year = {2025},
-  url = {https://github.com/radinhamidi/queryGym},
+  url = {https://github.com/radinhamidi/QueryGym},
   license = {MIT}
 }
 ```
