@@ -1,5 +1,6 @@
 [![Publish to PyPI](https://github.com/radinhamidi/QueryGym/actions/workflows/publish.yml/badge.svg)](https://github.com/radinhamidi/QueryGym/actions/workflows/publish.yml)
 [![PyPI version](https://badge.fury.io/py/querygym.svg)](https://pypi.org/project/querygym/)
+![PyPI - Downloads](https://img.shields.io/pypi/dw/querygym?color=blueviolet&label=downloads)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
