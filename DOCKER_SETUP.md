@@ -15,10 +15,10 @@ cd QueryGym
 export OPENAI_API_KEY="sk-..."
 
 # 3. Run with Docker Compose
-docker-compose run --rm querygym
+docker compose run --rm querygym
 
 # Or start Jupyter
-docker-compose up jupyter
+docker compose up jupyter
 ```
 
 ### Option 2: Direct Docker Run
@@ -56,7 +56,7 @@ The `Makefile` is for **local development only**. End users should use pre-built
 
 ## Files Overview
 
-- **`docker-compose.yml`** - Uses pre-built GHCR images (for end users)
+- **`compose.yml`** / **`docker-compose.yml`** - Uses pre-built GHCR images (for end users)
 - **`Dockerfile`** - GPU image definition (for building)
 - **`Dockerfile.cpu`** - CPU image definition (for building)
 - **`.dockerignore`** - Build optimization

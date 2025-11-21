@@ -49,8 +49,8 @@ pip install querygym
 # Pull pre-built image
 docker pull ghcr.io/radinhamidi/querygym:latest
 
-# Run with docker-compose
-docker-compose run --rm querygym
+# Run with Docker Compose
+docker compose run --rm querygym
 ```
 
 See the [Docker Guide](user-guide/docker.md) for detailed setup and usage.

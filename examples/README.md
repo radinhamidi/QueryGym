@@ -28,7 +28,7 @@ Perfect for:
 - Jupyter notebook development
 
 Includes:
-- Ready-to-use `docker-compose.yml`
+- Ready-to-use `docker-compose.yml` (Compose V2 compatible)
 - Interactive Jupyter notebook
 - Quick setup guide
 
@@ -51,7 +51,7 @@ Includes:
 ### Option 1: Run with Docker (Easiest)
 ```bash
 cd docker/
-docker-compose run --rm querygym
+docker compose run --rm querygym
 ```
 
 ### Option 2: Run Python Snippets

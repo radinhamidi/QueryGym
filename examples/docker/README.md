@@ -27,13 +27,13 @@ This directory contains practical examples for using QueryGym with Docker.
 3. **Run with Docker Compose:**
    ```bash
    # GPU version (interactive shell)
-   docker-compose run --rm querygym
+   docker compose run --rm querygym
    
    # CPU version (interactive shell)
-   docker-compose run --rm querygym-cpu
+   docker compose run --rm querygym-cpu
    
    # Jupyter notebook server
-   docker-compose up jupyter
+   docker compose up jupyter
    # Then open http://localhost:8888
    ```
 
@@ -50,7 +50,7 @@ This directory contains practical examples for using QueryGym with Docker.
 ### Example 1: Interactive Python Session
 
 ```bash
-docker-compose run --rm querygym
+docker compose run --rm querygym
 
 # Inside container:
 python
@@ -80,14 +80,14 @@ print(f"Reformulated {len(results)} queries!")
 EOF
 
 # Run it
-docker-compose run --rm querygym python my_experiment.py
+docker compose run --rm querygym python my_experiment.py
 ```
 
 ### Example 3: Jupyter Notebook
 
 ```bash
 # Start Jupyter server
-docker-compose up jupyter
+docker compose up jupyter
 
 # Open http://localhost:8888 in your browser
 # Try the included quickstart.ipynb notebook
@@ -97,7 +97,7 @@ docker-compose up jupyter
 
 ```bash
 # Use the CPU version if you don't have a GPU
-docker-compose run --rm querygym-cpu
+docker compose run --rm querygym-cpu
 ```
 
 ## 🔧 Configuration
@@ -140,12 +140,12 @@ docker run --rm --gpus all nvidia/cuda:12.1.0-base nvidia-smi
 
 ```bash
 # Run as your user
-docker-compose run --rm -u $(id -u):$(id -g) querygym
+docker compose run --rm -u $(id -u):$(id -g) querygym
 ```
 
 ### Pull Latest Images
 
 ```bash
 # Update to latest version
-docker-compose pull
+docker compose pull
 ```

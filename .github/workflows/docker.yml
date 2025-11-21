@@ -27,10 +27,12 @@ jobs:
         include:
           - dockerfile: Dockerfile
             tag-suffix: ""
+            extra-tags: ""
             platforms: linux/amd64
             description: "GPU-enabled (default)"
           - dockerfile: Dockerfile.cpu
             tag-suffix: "-cpu"
+            extra-tags: "type=raw,value=cpu,enable={{is_default_branch}}"
             platforms: linux/amd64,linux/arm64
             description: "CPU-only (lightweight)"
 
@@ -59,12 +61,14 @@ jobs:
           tags: |
             type=semver,pattern={{version}}${{ matrix.tag-suffix }}
             type=semver,pattern={{major}}.{{minor}}${{ matrix.tag-suffix }}
-            type=sha,prefix={{branch}}-
+            type=sha,prefix={{branch}}-,suffix=${{ matrix.tag-suffix }}
             type=raw,value=latest${{ matrix.tag-suffix }},enable={{is_default_branch}}
+            ${{ matrix.extra-tags }}
           labels: |
             org.opencontainers.image.title=QueryGym
             org.opencontainers.image.description=LLM-based Query Reformulation Toolkit
             org.opencontainers.image.vendor=QueryGym Team
+            org.opencontainers.image.licenses=Apache-2.0
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5

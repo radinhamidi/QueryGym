@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "querygym"
-version = "0.1.3"
+version = "0.1.4"
 description = "LLM-based Query Reformulation Toolkit"
 readme = "README.md"
 requires-python = ">=3.9"
-license = {text = "MIT"}
+license = {text = "Apache-2.0"}
 authors = [
   {name = "Radin Hamidi Rad", email = "radin.h@gmail.com"},
   {name = "Amin Bigdeli", email = "aminbigdeli97@gmail.com"},
@@ -19,7 +19,7 @@ keywords = ["information-retrieval", "query-reformulation", "llm", "nlp"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",

@@ -224,7 +224,7 @@ docker run -it --rm \
   querygym:latest
 ```
 
-Or use a `.env` file with docker-compose:
+Or use a `.env` file with Docker Compose:
 
 ```bash
 # Create .env file
@@ -233,8 +233,8 @@ OPENAI_API_KEY=sk-...
 OPENAI_BASE_URL=https://api.openai.com/v1
 EOF
 
-# docker-compose will automatically load it
-docker-compose run querygym-cpu
+# Docker Compose will automatically load it
+docker compose run --rm querygym
 ```
 
 ## 📦 Installed Packages

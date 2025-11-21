@@ -29,12 +29,16 @@ pip install querygym
 
 ### Option 2: Use Docker (Recommended for Quick Start)
 ```bash
-# Pull and run pre-built image
+# GPU version (default)
 docker pull ghcr.io/radinhamidi/querygym:latest
 docker run -it --gpus all ghcr.io/radinhamidi/querygym:latest
 
-# Or use docker-compose
-docker-compose run --rm querygym
+# CPU version (lightweight)
+docker pull ghcr.io/radinhamidi/querygym:cpu
+docker run -it ghcr.io/radinhamidi/querygym:cpu
+
+# Or use Docker Compose
+docker compose run --rm querygym
 ```
 
 📖 **Docker Setup:** See [DOCKER_SETUP.md](DOCKER_SETUP.md) for quick start or the [full Docker guide](https://querygym.readthedocs.io/en/latest/user-guide/docker/) for detailed usage.
@@ -126,3 +130,23 @@ We welcome contributions! Here's how you can help:
 - Have a feature request? We'd love to hear it!
 
 For detailed development guidelines, see the [Contributing Guide](https://querygym.readthedocs.io/en/latest/development/contributing/) in our documentation.
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+
+### Citation
+
+If you use QueryGym in your research, please cite:
+
+```bibtex
+@misc{bigdeli2025querygymtoolkitreproduciblellmbased,
+      title={QueryGym: A Toolkit for Reproducible LLM-Based Query Reformulation}, 
+      author={Amin Bigdeli and Radin Hamidi Rad and Mert Incesu and Negar Arabzadeh and Charles L. A. Clarke and Ebrahim Bagheri},
+      year={2025},
+      eprint={2511.15996},
+      archivePrefix={arXiv},
+      primaryClass={cs.IR},
+      url={https://arxiv.org/abs/2511.15996}, 
+}
+```
