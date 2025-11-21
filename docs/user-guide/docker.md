@@ -247,7 +247,7 @@ docker-compose run querygym-cpu
 - Jupyter/IPython
 - Transformers
 - Sentence-Transformers
-- OpenJDK 17 (for PySerini)
+- OpenJDK 21 (for PySerini)
 - NVIDIA CUDA runtime
 
 ### CPU Image (Lightweight - `querygym:cpu`)
@@ -256,7 +256,7 @@ docker-compose run querygym-cpu
 - PySerini
 - PyTorch (CPU-only)
 - Jupyter/IPython
-- OpenJDK 17 (for PySerini)
+- OpenJDK 21 (for PySerini)
 
 ## 🛠️ Customization
 

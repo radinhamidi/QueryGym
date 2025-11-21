@@ -4,7 +4,7 @@ This directory contains practical examples and tutorials for using QueryGym in d
 
 ## 📁 Directory Structure
 
-### 1. [snippets/](snippets/)
+### 1. [snippets](snippets/)
 **Quick code snippets** demonstrating core QueryGym functionality.
 
 Perfect for:
@@ -19,7 +19,7 @@ Examples include:
 - Context-based reformulation
 - Using search adapters
 
-### 2. [docker/](docker/)
+### 2. [docker](docker/)
 **Docker-based examples** for containerized workflows.
 
 Perfect for:
@@ -32,7 +32,7 @@ Includes:
 - Interactive Jupyter notebook
 - Quick setup guide
 
-### 3. [querygym_pyserini/](querygym_pyserini/)
+### 3. [querygym_pyserini](querygym_pyserini/)
 **End-to-end retrieval workflows** integrating QueryGym with Pyserini.
 
 Perfect for:
@@ -73,21 +73,21 @@ cd querygym_pyserini/
 ## 📚 Learning Path
 
 **Beginner:**
-1. Start with [snippets/](snippets/) to learn the basics
-2. Try [docker/](docker/) for a containerized environment
+1. Start with [snippets](snippets/) to learn the basics
+2. Try [docker](docker/) for a containerized environment
 
 **Intermediate:**
 3. Explore different reformulation methods in snippets
 4. Run Jupyter notebooks in Docker
 
 **Advanced:**
-5. Build complete pipelines with [querygym_pyserini/](querygym_pyserini/)
+5. Build complete pipelines with [querygym_pyserini](querygym_pyserini/)
 6. Integrate with your own retrieval systems
 
 ## 🔗 Additional Resources
 
-- **Documentation:** [https://querygym.readthedocs.io/](https://querygym.readthedocs.io/)
-- **Docker Setup:** [../DOCKER_SETUP.md](../DOCKER_SETUP.md)
+- **Documentation:** [https://querygym.readthedocs.io](https://querygym.readthedocs.io/)
+- **Docker Setup:** [DOCKER_SETUP.md](../../DOCKER_SETUP.md) in the root directory
 - **API Reference:** [https://querygym.readthedocs.io/en/latest/api/core/](https://querygym.readthedocs.io/en/latest/api/core/)
 - **GitHub:** [https://github.com/radinhamidi/QueryGym](https://github.com/radinhamidi/QueryGym)
 
@@ -105,6 +105,8 @@ Have a useful example? We'd love to include it! Please:
 2. Include clear comments and documentation
 3. Test it works with the latest QueryGym version
 4. Submit a pull request
+
+See the [Contributing section](../README.md#contributing) in the main README for general contribution guidelines.
 
 ## ❓ Need Help?
 

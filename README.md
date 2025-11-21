@@ -1,4 +1,5 @@
 [![Publish to PyPI](https://github.com/radinhamidi/QueryGym/actions/workflows/publish.yml/badge.svg)](https://github.com/radinhamidi/QueryGym/actions/workflows/publish.yml)
+[![Build and Push Docker Images](https://github.com/radinhamidi/QueryGym/actions/workflows/docker.yml/badge.svg)](https://github.com/radinhamidi/QueryGym/actions/workflows/docker.yml)
 [![PyPI version](https://badge.fury.io/py/querygym.svg)](https://pypi.org/project/querygym/)
 ![PyPI - Downloads](https://img.shields.io/pypi/dw/querygym?color=blueviolet&label=downloads)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -100,9 +101,28 @@ qrels = qg.loaders.msmarco.load_qrels("qrels.tsv")
 
 ## Examples
 
-See the [examples/](examples/) directory for:
+See the [examples](examples/) directory for:
 - **[Code snippets](examples/snippets/)** - Quick reference examples
 - **[Docker examples](examples/docker/)** - Containerized workflows with Jupyter notebooks
 - **[QueryGym + Pyserini](examples/querygym_pyserini/)** - Complete retrieval pipelines
 
 Check [examples/README.md](examples/README.md) for the full guide.
+
+## Contributing
+
+We welcome contributions! Here's how you can help:
+
+### Adding a New Prompt
+1. Edit `querygym/prompt_bank.yaml`
+2. Add an entry with fields: `id`, `method_family`, `version`, `introduced_by`, `license`, `authors`, `tags`, `template:{system,user}`, `notes`
+
+### Adding a New Method
+1. Create a class under `querygym/methods/*.py`
+2. Subclass `BaseReformulator`, annotate `VERSION`, and register with `@register_method("name")`
+3. Pull templates via `PromptBank.render(prompt_id, query=...)`
+
+### Reporting Issues
+- Found a bug? [Open an issue](https://github.com/radinhamidi/QueryGym/issues)
+- Have a feature request? We'd love to hear it!
+
+For detailed development guidelines, see the [Contributing Guide](https://querygym.readthedocs.io/en/latest/development/contributing/) in our documentation.

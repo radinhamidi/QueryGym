@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3.10 \
     python3.10-venv \
     python3-pip \
-    openjdk-17-jre-headless \
+    openjdk-21-jre-headless \
     build-essential \
     git \
     wget \
@@ -51,7 +51,7 @@ RUN pip install --no-cache-dir \
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 \
+    JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64 \
     CUDA_VISIBLE_DEVICES=0
 
 # Create working directory

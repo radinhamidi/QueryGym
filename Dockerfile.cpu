@@ -4,7 +4,7 @@
 # Base: python:3.10-slim (Debian-based) for best compatibility
 
 # Stage 1: Builder stage
-FROM python:3.10-slim as builder
+FROM python:3.10-slim AS builder
 
 # Install build dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -40,7 +40,7 @@ LABEL org.opencontainers.image.source="https://github.com/radinhamidi/QueryGym"
 
 # Install runtime dependencies (Java for PySerini)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    openjdk-17-jre-headless \
+    openjdk-21-jre-headless \
     wget \
     curl \
     && rm -rf /var/lib/apt/lists/*
@@ -52,7 +52,7 @@ COPY --from=builder /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH" \
     PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+    JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
 
 # Create working directory
 WORKDIR /workspace
