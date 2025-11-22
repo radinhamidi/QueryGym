@@ -9,8 +9,6 @@
   <img src="https://raw.githubusercontent.com/radinhamidi/QueryGym/main/docs/querygym-logo.png" alt="QueryGym Logo" width="600">
 </div>
 
-# QueryGym
-
 A lightweight, reproducible toolkit for **LLM-based query reformulation**.
 
 - Single **Prompt Bank** (YAML) with metadata.
