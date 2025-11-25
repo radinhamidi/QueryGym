@@ -91,17 +91,20 @@ pip install querygym[dev]
 
 ## Citation
 
-If you use querygym in your research, please cite:
+If you use QueryGym in your research, please cite:
 
 ```bibtex
-@software{querygym2025,
-  title = {querygym: LLM-based Query Reformulation Toolkit},
-  author = {Bigdeli, Amin and Hamidi Rad, Radin and Incesu, Mert and Arabzadeh, Negar and Clarke, Charles L. A. and Bagheri, Ebrahim},
-  year = {2025},
-  url = {https://github.com/radinhamidi/QueryGym}
+@misc{bigdeli2025querygymtoolkitreproduciblellmbased,
+      title={QueryGym: A Toolkit for Reproducible LLM-Based Query Reformulation}, 
+      author={Amin Bigdeli and Radin Hamidi Rad and Mert Incesu and Negar Arabzadeh and Charles L. A. Clarke and Ebrahim Bagheri},
+      year={2025},
+      eprint={2511.15996},
+      archivePrefix={arXiv},
+      primaryClass={cs.IR},
+      url={https://arxiv.org/abs/2511.15996}, 
 }
 ```
 
 ## License
 
-MIT License - see [LICENSE](about/license.md) for details.
+Apache License 2.0 - see [LICENSE](about/license.md) for details.

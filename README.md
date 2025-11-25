@@ -101,6 +101,10 @@ queries = qg.loaders.msmarco.load_queries("queries.tsv")
 qrels = qg.loaders.msmarco.load_qrels("qrels.tsv")
 ```
 
+## Leaderboard
+
+📊 **[View the Leaderboard](https://radinhamidi.github.io/QueryGym/leaderboard.html)** - Performance benchmarks across different methods, LLMs, and datasets.
+
 ## Examples
 
 See the [examples](examples/) directory for:

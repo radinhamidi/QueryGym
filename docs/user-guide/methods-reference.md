@@ -601,7 +601,7 @@ result = reformulator.reformulate(qg.QueryItem("q1", "quantum computing"))
 
 ## See Also
 
-- [API Reference](api/methods.md) - Technical API documentation
-- [User Guide](../user-guide/reformulation.md) - Usage tutorials
-- [Examples](../examples/) - Complete workflow examples
+- [API Reference](../api/methods.md) - Technical API documentation
+- [Query Reformulation Guide](reformulation.md) - Usage tutorials
+- [Examples](https://github.com/radinhamidi/QueryGym/tree/main/examples) - Complete workflow examples
 
