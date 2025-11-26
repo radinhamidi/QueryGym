@@ -6,9 +6,11 @@ on:
     branches: ["main"]
     paths:
       - 'README.md'
+      - 'index.md'
       - 'docs/leaderboard.html'
       - 'docs/querygym-logo.png'
       - '_config.yml'
+      - 'Gemfile'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -37,23 +39,20 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
 
-      - name: Install Jekyll
-        run: |
-          gem install jekyll bundler
+      - name: Install dependencies
+        run: bundle install
 
-      - name: Prepare site
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Copy additional files
         run: |
-          mkdir -p _site
-          # Copy leaderboard
+          # Copy leaderboard to _site
           cp docs/leaderboard.html _site/leaderboard.html
           # Copy logo for the site
           cp docs/querygym-logo.png _site/querygym-logo.png 2>/dev/null || true
-
-      - name: Build with Jekyll
-        run: |
-          jekyll build
-        env:
-          JEKYLL_ENV: production
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
